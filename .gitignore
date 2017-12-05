@@ -2,6 +2,7 @@
 /node_modules
 /functions/node_modules
 npm-debug.log
+package-lock.json
 
 # credentials
 firebase-credentials.json
