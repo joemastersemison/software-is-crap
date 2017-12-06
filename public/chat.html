@@ -35,8 +35,8 @@
             </div>
             <div class="row">
                 <div class="btn-panel">
-                    <input onKeyUp="debounce(loadChat($('#searchFilter').val()), 250);" type="text" class="col-lg-9" id="searchFilter" name="searchFilter" placeholder="Enter your search filter text here..." />
-                    <a href="#" onclick="loadChat($('#searchFilter').val())" class="btn  send-message-btn col-lg-1" role="button"><i class="fa fa-search"></i> Search</a>
+                    <input onKeyUp="debounce(loadChat($('#searchFilter').val()), 250);" type="text" class="col-lg-9 col-sm-8" id="searchFilter" name="searchFilter" placeholder="Enter your search filter text here..." />
+                    <a href="#" onclick="loadChat($('#searchFilter').val())" class="btn  send-message-btn col-lg-1 col-sm-4" role="button"><i class="fa fa-search"></i> Search</a>
                     <div class="col-lg-2">
                         <small>watermark:
                             <select id="watermark-location" onChange="loadChat()">
