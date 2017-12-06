@@ -4,8 +4,17 @@
 npm-debug.log
 package-lock.json
 
+# bower packages
+/public/components
+
+# firebase debug
+firebase-debug.log
+package-lock.json
+/functions/package-lock.json
+
 # credentials
 firebase-credentials.json
+js/services.js
 
 # temp files
 *~

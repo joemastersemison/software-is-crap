@@ -11,9 +11,17 @@
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="/components/jquery/dist/jquery.min.js"></script>
+    <script src="/components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/components/blueimp-file-upload/js/vendor/jquery.ui.widget.js" type="text/javascript"></script>
+    <script src="/components/blueimp-file-upload/js/jquery.iframe-transport.js" type="text/javascript"></script>
+    <script src="/components/blueimp-file-upload/js/jquery.fileupload.js" type="text/javascript"></script>
+    <script src="/components/cloudinary-jquery-file-upload/cloudinary-jquery-file-upload.min.js" type="text/javascript"></script>
+    <script src="/components/algoliasearch/dist/algoliasearchLite.min.js"></script>
+    <script src="/js/services.js"></script>
+    <link type="text/css" rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   </head>
   <body>
     <div class="container">
@@ -30,13 +38,7 @@
     <script type="text/javascript">
 
       // Firebase config
-      var config = {
-        apiKey: "AIzaSyCE4qnon4z9dQHpAJ5qVMdcV79QI9ySl6Q",
-        authDomain: "wecreate-gfk.firebaseapp.com",
-        databaseURL: "https://wecreate-gfk.firebaseio.com"
-      };
-      firebase.initializeApp(config);
-
+      firebase.initializeApp(firebaseConfig);
 
       // FirebaseUI config.
       var uiConfig = {
@@ -55,70 +57,6 @@
       // The start method will wait until the DOM is loaded.
       ui.start('#firebaseui-auth-container', uiConfig);
 
-
-      initApp = function() {
-        firebase.auth().onAuthStateChanged(function(user) {
-          if (user) {
-            // User is signed in.
-            var displayName = user.displayName;
-            var email = user.email;
-            var emailVerified = user.emailVerified;
-            var photoURL = user.photoURL;
-            var uid = user.uid;
-            var phoneNumber = user.phoneNumber;
-            var providerData = user.providerData;
-            user.getIdToken().then(function(accessToken) {
-              console.log('signed in');
-              /*document.getElementById('sign-in-status').textContent = 'Signed in';
-              document.getElementById('sign-in').textContent = 'Sign out';
-              document.getElementById('account-details').textContent = JSON.stringify({
-                displayName: displayName,
-                email: email,
-                emailVerified: emailVerified,
-                phoneNumber: phoneNumber,
-                photoURL: photoURL,
-                uid: uid,
-                accessToken: accessToken,
-                providerData: providerData
-              }, null, '  ');*/
-            });
-          } else {
-            // User is signed out.
-            console.log('signed out');
-            //document.getElementById('sign-in-status').textContent = 'Signed out';
-            //document.getElementById('sign-in').textContent = 'Sign in';
-            //document.getElementById('account-details').textContent = 'null';
-          }
-        }, function(error) {
-          console.log(error);
-        });
-      };
-
-
-      window.addEventListener('load', function() {
-        initApp()
-      });
-
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database'].filter(feature => typeof app[feature] === 'function');
-          console.log(`Firebase SDK loaded with ${features.join(', ')}`);
-        } catch (e) {
-          console.log('error');
-          console.error(e);
-        }
-      });
     </script>
   </body>
 </html>
