@@ -98,9 +98,9 @@
                     // User is signed in.
                     user.getIdToken().then(function(accessToken) {
                         // tell segment who this is
-                        analytics.identify({
+                        analytics.identify(firebase.auth().currentUser.uid, {
+                            displayName: firebase.auth().currentUser.displayName,
                             email: firebase.auth().currentUser.email,
-                            uid: firebase.auth().currentUser.uid,
                             provider: firebase.auth().currentUser.providerId
                         });
 
